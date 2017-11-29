@@ -10,10 +10,11 @@ class APIRequestor(object):
 
     def request(self, method, url, data=None, params=None):
         """
-        Give an HTTP method, a url, request body data, and
+        Given a HTTP method, a url, request body data, and
         url query params, makes the request to the guidebook
         API and returns the JSON response body loaded into
-        python, or else raises
+        python. Raises on bad network conditions, bad arguments,
+        or an error returned by the Guidebook API
         """
         requests_kwargs = {
             'url': url,
@@ -27,9 +28,9 @@ class APIRequestor(object):
             message = ('Unexpected network error. A {} was raised with '
                        'message {}'.format(type(e).__name__, str(e)))
 
-            # catch *any* so that if requests fails for any reason (bad
-            # network conditions, bad python arguments etc.), we raise a
-            # GuidebookError instance
+            # catch *any* Exception so that if requests fails for any reason
+            # (bad network conditions, bad python arguments etc.), we raise
+            # a GuidebookError instance
             raise exceptions.GuidebookError(message)
 
         interpreted_response = self.interpret_response(response)
@@ -38,7 +39,8 @@ class APIRequestor(object):
     def interpret_response(self, response):
         """
         Return the JSON data in the response body laoded into
-        python, or else raises
+        python. Raises if the response body isn't valid JSON
+        or response status_code indicates that an error occurred
         """
         try:
             response_json = response.json()
