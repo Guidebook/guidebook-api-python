@@ -4,7 +4,7 @@ github_repo_url = 'https://github.com/Guidebook/guidebook-api-python'
 
 setup(
     name='guidebook-api-python',
-    version='0.0.1',
+    version='0.0.2',
     author='Guidebook',
     author_email='web-team@guidebook.com',
     description='Python client for the Guidebook Open API.',

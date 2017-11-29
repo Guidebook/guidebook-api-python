@@ -4,6 +4,14 @@
 
 `guidebook-api-python` is a python client for the [Guidebook Open API](https://developer.guidebook.com/).
 
-# Running Tests
+# Installation
 
-`python -m unittest discover`
+`pip install guidebook-api-python`
+
+# Development
+
+Running tests:
+
+```
+python -m unittest discover
+```
