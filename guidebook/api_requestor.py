@@ -10,7 +10,7 @@ class APIRequestor(object):
 
     def request(self, method, url, data=None, params=None):
         """
-        Given a HTTP method, a url, request body data, and
+        Given a HTTP method, an url, request body data, and
         url query params, makes the request to the guidebook
         API and returns the JSON response body loaded into
         python. Raises on bad network conditions, bad arguments,
@@ -38,7 +38,7 @@ class APIRequestor(object):
 
     def interpret_response(self, response):
         """
-        Return the JSON data in the response body laoded into
+        Return the JSON data in the response body loaded into
         python. Raises if the response body isn't valid JSON
         or response status_code indicates that an error occurred
         """
