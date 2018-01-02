@@ -17,7 +17,7 @@ api_key = 'example_key'
 
 api_client = api_requestor.APIRequestor(api_key)
 
-api_url = 'http://guidebook.com'
+api_url = 'https://builder.guidebook.com/open-api/v1/sessions/'
 
 api_client.request('get', api_url)
 
